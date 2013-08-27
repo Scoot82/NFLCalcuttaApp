@@ -29,3 +29,5 @@ syndicate_list = [ 'Scott', 'Larry', 'Master', 'Gnade', 'Nitin', 'Veltman', 'Car
 syndicate_list.each do | name |
   Syndicate.create(name: name)
 end  
+
+User.create(login: "Scott", password:"Letmein1", role: "admin")
