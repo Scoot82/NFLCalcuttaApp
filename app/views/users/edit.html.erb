@@ -1,0 +1,24 @@
+<h1>Editing User: <%= @user.login %></h1>
+
+<%= form_for @user do |f| %>
+	
+	<p>
+		<%= f.label :login %>
+		<%= f.text_field :login %>
+	</p>
+	<p>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
+	</p>
+	<p>
+		<%= f.label :password_confirmation, "Retype Password" %>
+		<%= f.password_field :password_confirmation %>
+	</p>
+	<p>
+		<%= f.label :role %>
+		<%= f.select :role, [['Admin', 'admin'], ['User', 'user' ]] %>
+	</p>
+	
+	<%= f.submit %>
+	
+<% end %>

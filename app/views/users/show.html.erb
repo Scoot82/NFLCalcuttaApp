@@ -1,0 +1,6 @@
+<h1>Profile for <%= @user.login %></h1>
+
+<p>Login: <%= @user.login %></p>
+<p>Role: <%= @user.role %></p>
+
+<%= link_to "Edit Profile", edit_user_path, class: "btn btn-small btn-primary" %>

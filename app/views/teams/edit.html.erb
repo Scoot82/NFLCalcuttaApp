@@ -1,0 +1,23 @@
+<h1>Editing: <%= @team.name %></h1>
+
+<%= form_for @team do |f| %>
+	
+	<p>
+	<%= f.label :price %>
+	<%= f.text_field :price %>
+	</p>
+	
+	<p>
+	<%= f.label :syndicate_id %>
+	<%= f.select :syndicate_id, [['Scott', 1 ], ['Larry', 2], ['Master', 3], ['Gnade', 4], ['Nitin', 5], ['Veltman', 6], ['Caruso', 7] ]%>
+	</p>
+	
+	<p>
+	<%= f.label :available, 'Availability' %>
+	<%= f.select :available, [['Purchased', false], ['Available', true ]] %>
+	</p>
+
+	<%= f.submit %>
+	
+<% end %>
+

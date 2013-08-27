@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <%= link_to "2013 nfl calcutta", root_path, id: "logo" %>
+      <nav>
+        <ul class="nav pull-right">
+          <li><%= link_to "Home",   		root_path %></li>
+					<% if @current_user %>
+						<li><%= link_to "My Account",   user_path(@current_user.id) %></li>
+          	<li><%= link_to "Create User",    new_user_path %></li>
+						<li><%= link_to 'Logout', '/sessions/:id', method: :delete %></li>
+					<% else %>
+						<li><%= link_to "Sign in", new_session_path %></li>
+					<% end %>	
+        </ul>
+      </nav>
+    </div>
+  </div>
+		<div class="container">
+			<% if @current_user %>
+				<%= "You are logged in as: #{@current_user.login}" %>
+			<% end %>
+		</div>	
+</header>

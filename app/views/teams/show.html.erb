@@ -1,0 +1,15 @@
+<h1><%= @team.name %></h1>
+
+<p>Purchased by: 
+<% if @team.syndicate %>
+	<%= @team.syndicate.name %></p>
+<% else %>
+	Not yet purchased
+<% end %>	
+<p>Price:
+<% if @team.syndicate %>
+	$<%= @team.price %></p>
+<% else %>
+	TBD
+<% end %>
+	</p>
