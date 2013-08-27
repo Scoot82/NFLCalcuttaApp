@@ -1,5 +1,7 @@
 <h1><%= @team.name %></h1>
 
+<%= image_tag @team.image_url(:mid_size).to_s %>
+
 <p>Purchased by: 
 <% if @team.syndicate %>
 	<%= @team.syndicate.name %></p>
@@ -13,3 +15,5 @@
 	TBD
 <% end %>
 	</p>
+	
+<%= link_to "Edit", edit_team_path(@team) %>	

@@ -1,6 +1,6 @@
 <h1>Editing: <%= @team.name %></h1>
 
-<%= form_for @team do |f| %>
+<%= form_for @team, html: { multipart: true } do |f| %>
 	
 	<p>
 	<%= f.label :price %>
@@ -15,6 +15,10 @@
 	<p>
 	<%= f.label :available, 'Availability' %>
 	<%= f.select :available, [['Purchased', false], ['Available', true ]] %>
+	</p>
+	
+	<p>
+	<%= f.file_field :image %>
 	</p>
 
 	<%= f.submit %>
