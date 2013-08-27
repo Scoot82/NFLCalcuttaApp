@@ -1,5 +1,7 @@
 <h1>Editing: <%= @team.name %></h1>
 
+<%= image_tag @team.image_url(:mid_size).to_s %>
+
 <%= form_for @team, html: { multipart: true } do |f| %>
 	
 	<p>
