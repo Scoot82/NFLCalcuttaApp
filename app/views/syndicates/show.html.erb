@@ -23,3 +23,5 @@
 <h2>
 	Total Spent: <%= number_to_currency(@total, precision: 0) %>
 </h2>	
+
+<%= content_tag :div, "", id: "teams_chart", data: {teams: @syndicate.teams} %>

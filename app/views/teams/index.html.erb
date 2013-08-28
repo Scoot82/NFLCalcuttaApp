@@ -54,13 +54,7 @@
 	
 <h1>Current Pot: <%= number_to_currency(@total, precision: 0)%> </h1>
 
-
-<% @syndicate.each do |x| %>
-	<% f = x.teams %>
-	<% f.each do |y| %>
-		<% y.name %>	
-	<% end %>
-<% end %>
+<%= content_tag :div, "", id: "teams_chart", data: {teams: @team.sold.order("price DESC")} %>
 	
 			
 	

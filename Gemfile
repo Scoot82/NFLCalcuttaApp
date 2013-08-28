@@ -7,6 +7,8 @@ gem 'protected_attributes'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'morrisjs-rails'
+gem 'raphael-rails'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
