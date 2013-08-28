@@ -9,6 +9,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'morrisjs-rails'
 gem 'raphael-rails'
+gem 'fog'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
