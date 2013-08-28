@@ -1,4 +1,4 @@
-
+<h2>Current Pot: <%= number_to_currency(@total, precision: 0) %> </h2>
 <div class='container'>
 	<div class="row">
 		<div class="span6">
@@ -58,9 +58,8 @@
 		</div>
 	</div>
 </div>	
-<h1>Current Pot: <%= number_to_currency(@total, precision: 0)%> </h1>
 
-<%= content_tag :div, "", id: "teams_chart", data: {teams: @team.sold.order("price DESC")} %>
+<%#= content_tag :div, "", id: "teams_chart", data: {teams: @team.sold.order("price DESC")} %>
 	
 			
 	
