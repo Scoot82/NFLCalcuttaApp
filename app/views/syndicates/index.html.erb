@@ -8,6 +8,7 @@
 						<th>Total Spend</th>
 						<th>Net Return ($)</th>
 						<th>Net Return (%)</th>
+						<th>Teams</th>
 					</tr>
 				 </thead>
 				 <tbody>	
@@ -17,6 +18,9 @@
 						<td><%= number_to_currency(f.teams.sum('price'), precision: 0) %></td>
 						<td><%= number_to_currency(-f.teams.sum('price') + f.teams.sum('wins') * @win_value, precision: 0, negative_format: "(%u%n)") %></td>
 						<td><%= number_to_percentage((-f.teams.sum('price') + f.teams.sum('wins') * @win_value).to_f / f.teams.sum('price') * 100, precision: 1) %></td>
+								<td><% f.teams.each do |x| %>
+									<%= x.name %>,
+								<% end %></td>	
 						</tr>
 					<% end %>
 				</tbody>

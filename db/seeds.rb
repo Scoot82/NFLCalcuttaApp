@@ -24,7 +24,7 @@ team_list.each do |name, available|
   Team.create(name: name, available: available, wins: 0)
 end  
 
-syndicate_list = [ 'Scott', 'Larry', 'Master', 'Gnade', 'Nitin', 'Veltman', 'Caruso' ]
+syndicate_list = [ 'Scott', 'Larry', 'Master', 'Gnade', 'Nitin', 'Veltman']
 
 syndicate_list.each do | name |
   Syndicate.create(name: name)
