@@ -1,5 +1,7 @@
 <h1>The "<%= @syndicate.name %>" Syndicate</h1>
 
+<div class='pull-right'><%= link_to 'Return To Draft Board', root_path, class:"btn btn-primary btn-small" %></div>
+
 <h3>Purchased Teams: </h3>
 
 <table class="table table-striped table-bordered table-condensed">
@@ -20,8 +22,6 @@
 	</thead>	
 </table>
 
-<h2>
-	Total Spent: <%= number_to_currency(@total, precision: 0) %>
-</h2>	
+<h2>Total Spent: <%= number_to_currency(@total, precision: 0) %></h2>	
 
 <%= content_tag :div, "", id: "teams_chart", data: {teams: @syndicate.teams} %>

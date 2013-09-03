@@ -48,6 +48,14 @@ h2 {
   margin-bottom: 5px;
   text-align: center;
   font-weight: normal;
+  outline: $black solid thin;
+}
+
+h3 {
+  font-size: 2em;
+  letter-spacing: -1px;
+  margin-bottom: 5px;
+  text-align: center;
   color: $red;
 }
 

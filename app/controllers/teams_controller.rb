@@ -18,7 +18,6 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     @team.update_attributes(params[:team])
     @team.save
-    redirect_to teams_path
+    redirect_to root_path
   end
-  
 end

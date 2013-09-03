@@ -11,12 +11,12 @@
 	
 	<p>
 	<%= f.label :syndicate_id %>
-	<%= f.select :syndicate_id, [['None', nil ], ['Scott', 1 ], ['Larry', 2], ['Master', 3], ['Gnade', 4], ['Nitin', 5], ['Veltman', 6], ['Caruso', 7] ]%>
+	<%= f.select :syndicate_id, [['None', nil ], ['Scott', 1 ], ['Larry', 2], ['Master', 3], ['Gnade', 4], ['Nitin', 5], ['Veltman', 6]] %>
 	</p>
 	
 	<p>
 	<%= f.label :available, 'Availability' %>
-	<%= f.select :available, [['Purchased', false], ['Available', true ]] %>
+	<%= f.select :available, [['Purchased', 'purchased'], ['Available', 'available' ], ['Up for auction', 'auction']] %>
 	</p>
 	
 	<p>

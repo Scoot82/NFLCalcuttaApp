@@ -1,4 +1,15 @@
-<h2>Current Pot: <%= number_to_currency(@total, precision: 0) %> </h2>
+<h2><% @team.each do |f| %>
+							<% if f.available == 'auction' %>
+								<td>Up for bid: <%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %> </td>
+								<td>| <%= f.syndicate.name %> @ <%= number_to_currency(f.price.to_i, precision: 0) %></td>
+								<% if @current_user %>
+									<td><%= link_to "Edit", edit_team_path(f.id) %></td>
+								<% end %>
+							<% end %>
+						<% end %>	
+</h2>
+
+<h3>Current Pot: <%= number_to_currency(@total, precision: 0) %> </h3>
 <div class='container'>
 	<div class="row">
 		<div class="span6">
@@ -14,7 +25,7 @@
 			  </thead>
 			  <tbody>
 					<% @team.each do |f| %>	
-							<% if f.available %>
+							<% if f.available == 'available' %>
 								<tr>
 									<td><%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %></td>
 									<% if @current_user %>
@@ -42,7 +53,7 @@
 			  </thead>
 			  <tbody>
 					<% @team.each do |f| %>
-						<% if !f.available %>
+						<% if f.available == 'purchased' %>
 							<tr>
 								<td><%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %> </td>
 								<td><%= number_to_currency(f.price.to_i, precision: 0) %></td>
@@ -54,7 +65,7 @@
 						<% end %>	
 					<% end %>
 				</tbody>
-			</table>		
+			</table>
 		</div>
 	</div>
 </div>	

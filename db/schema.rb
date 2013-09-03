@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130827201806) do
+ActiveRecord::Schema.define(version: 20130828192320) do
 
   create_table "syndicates", force: true do |t|
     t.string   "name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20130827201806) do
     t.string   "name"
     t.integer  "price"
     t.string   "syndicate_id"
-    t.boolean  "available"
+    t.string   "available"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
