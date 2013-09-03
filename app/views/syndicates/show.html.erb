@@ -1,6 +1,6 @@
 <h1>The "<%= @syndicate.name %>" Syndicate</h1>
 
-<div class='pull-right'><%= link_to 'Return To Draft Board', root_path, class:"btn btn-primary btn-small" %></div>
+<div class='pull-right'><%#= link_to 'Return To Draft Board', root_path, class:"btn btn-primary btn-small" %></div>
 
 <h3>Purchased Teams: </h3>
 
@@ -8,20 +8,38 @@
   <thead>
     <tr>
       <th>Team</th>
- 			<th>Price</th>
+			<th>Purchase Price</th>
+			<th>Wins</th>
+			<th>Net Return ($)</th>
+			<th>Net Return (%)</th>
+			<% if @current_user %>
+			<th>Edit</th>
+			<% end %>
     </tr>
   </thead>
   	<tbody>
-			<% @syndicate.teams.each do |f| %>	
+			<% @syndicate.teams.order("price DESC").each do |f| %>	
 			<tr>
-				<td><%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %></td>
+				<td><%= image_tag f.image_url(:thumb).to_s %> |
+					 	<% if @current_user %>
+							<%= link_to f.name, team_path(f) %>
+						<% else %>
+							<%= f.name %>
+						<% end %>	
+				</td>
 				<td><%= number_to_currency(f.price.to_i, precision: 0) %></td>
+				<td><%= f.wins %></td>
+				<td><%= number_to_currency(f.wins.to_i * @win_value - f.price, precision: 0, negative_format: "(%u%n)") %></td>
+				<td><%= number_to_percentage((f.wins.to_f * @win_value - f.price) / f.price * @win_value, precision: 0) %></td>
+				<% if @current_user %>
+				<td><%= link_to "Edit", edit_team_path(f) %></td>
+				<% end %>
 			<% end %>
 			</tr>
 		</tbody>	
 	</thead>	
 </table>
 
-<h2>Total Spent: <%= number_to_currency(@total, precision: 0) %></h2>	
+<h3>Net Investment: <%= number_to_currency(@dollar_return, precision: 0) %> | <%= number_to_percentage(@percent_return, precision: 1) %></h3>	
 
-<%= content_tag :div, "", id: "teams_chart", data: {teams: @syndicate.teams} %>
+<%= content_tag :div, "", id: "teams_chart", data: {teams: @syndicate.teams.order("price DESC")} %>

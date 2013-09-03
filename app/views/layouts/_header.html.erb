@@ -5,6 +5,7 @@
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "Draft Board",   		root_path %></li>
+					<li><%= link_to "Syndicates",   		syndicates_path %></li>
 					<% if @current_user %>
 						<li><%= link_to "My Account",   user_path(@current_user.id) %></li>
 						<li><%= link_to "Create User",    new_user_path %></li>

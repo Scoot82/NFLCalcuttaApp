@@ -27,7 +27,7 @@
 					<% @team.each do |f| %>	
 							<% if f.available == 'available' %>
 								<tr>
-									<td><%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %></td>
+									<td><%= image_tag f.image_url(:thumb).to_s %> | <%= link_to f.name, team_path(f) %></td>
 									<% if @current_user %>
 										<td><%= link_to "Edit", edit_team_path(f.id) %></td>
 									<% end %>	
@@ -55,7 +55,7 @@
 					<% @team.each do |f| %>
 						<% if f.available == 'purchased' %>
 							<tr>
-								<td><%= image_tag f.image_url(:thumb).to_s %> | <%= f.name %> </td>
+								<td><%= image_tag f.image_url(:thumb).to_s %> | <%= link_to f.name, team_path(f) %> </td>
 								<td><%= number_to_currency(f.price.to_i, precision: 0) %></td>
 								<td><%= link_to f.syndicate.name, syndicate_path(f.syndicate.id) %></td>
 								<% if @current_user %>

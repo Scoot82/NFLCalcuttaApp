@@ -1,19 +1,39 @@
-<h1><%= @team.name %></h1>
 
-<%= image_tag @team.image_url(:mid_size).to_s %>
-
-<p>Purchased by: 
-<% if @team.syndicate %>
-	<%= @team.syndicate.name %></p>
-<% else %>
-	Not yet purchased
-<% end %>	
-<p>Price:
-<% if @team.syndicate %>
-	$<%= @team.price %></p>
-<% else %>
-	TBD
-<% end %>
-</p>
-	
-<%= link_to "Edit", edit_team_path(@team) %>	
+<div class= "center">
+	<%= image_tag @team.image_url(:mid_size).to_s %>
+</div>	
+<div class='container'>
+	<div class="row">
+		<div class="span12">
+			<h1><%= @team.name %></h1>
+			<table class="table table-striped table-bordered table-condensed">
+				<thead>
+			    <tr>
+			      <th>Owned By</th>
+			 			<th>Purchase Price</th>
+						<th>Wins</th>
+						<th>Net $ Return</th>
+						<th>Net % Return</th>
+						<% if @current_user %>
+							<th>Edit</th>
+						<% end %>
+					</tr>
+				 </thead>
+				 <tbody>
+					<% if @team.syndicate %>
+						<td><%= @team.syndicate.name %></td>
+						<td><%= number_to_currency(@team.price, precision: 0) %></td>
+						<td><%= @team.wins %></td>
+						<td><%= number_to_currency(@team.wins.to_i * @win_value - @team.price, precision: 0, negative_format: "(%u%n)") %></td>
+						<td><%= number_to_percentage(@return,  precision: 0, negative_format: "(%u%n)") %></td>
+						<% if @current_user %>
+							<td><%= link_to "Edit", edit_team_path(@team) %></td>
+						<% end %>
+					<% else %>
+						<h3>Not yet purchased</h4>
+					<% end %>	
+				</tbody>
+			</table>		
+		</div>
+	</div>
+</div>

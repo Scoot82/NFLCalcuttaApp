@@ -1,6 +1,6 @@
 <h1>Editing: <%= @team.name %></h1>
 
-<%= image_tag @team.image_url(:mid_size).to_s %>
+<div class="center"><%= image_tag @team.image_url(:mid_size).to_s %></div>
 
 <%= form_for @team, html: { multipart: true } do |f| %>
 	
@@ -17,6 +17,11 @@
 	<p>
 	<%= f.label :available, 'Availability' %>
 	<%= f.select :available, [['Purchased', 'purchased'], ['Available', 'available' ], ['Up for auction', 'auction']] %>
+	</p>
+	
+	<p>
+	<%= f.label :wins, "Regular Season Wins" %>
+	<%= f.number_field :wins %>
 	</p>
 	
 	<p>
