@@ -8,7 +8,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
     if @team.wins > 0
-      @return = ((@team.wins * @win_value - @team.price) / @team.price) * @win_value  
+      @return = ((@team.wins * @win_value - @team.price) / @team.price) * 100  
     else
       @return = "NA"
     end

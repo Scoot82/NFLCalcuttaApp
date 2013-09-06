@@ -24,8 +24,8 @@
 						<td><%= @team.syndicate.name %></td>
 						<td><%= number_to_currency(@team.price, precision: 0) %></td>
 						<td><%= @team.wins %></td>
-						<td><%= number_to_currency(@team.wins.to_i * @win_value - @team.price, precision: 0, negative_format: "(%u%n)") %></td>
-						<td><%= number_to_percentage(@return,  precision: 0, negative_format: "(%u%n)") %></td>
+						<td><%= number_to_currency(@team.wins.to_i * @win_value - @team.price, precision: 2, negative_format: "(%u%n)") %></td>
+						<td><%= number_to_percentage(@return,  precision: 2, negative_format: "(%u%n)") %></td>
 						<% if @current_user %>
 							<td><%= link_to "Edit", edit_team_path(@team) %></td>
 						<% end %>
