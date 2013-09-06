@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   
   before_filter :find_user
   before_filter :set_win_value
+  before_filter :total_pot
   
+  def total_pot
+    @total_pot = Team.sum('price')
+  end
+
   def set_win_value
     @win_value = 86.75
   end  

@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   def index
     @team = Team.all
     @syndicate = Syndicate.all
-    @total = Team.sum('price')
   end
   
   def show
@@ -25,4 +24,5 @@ class TeamsController < ApplicationController
     @team.save
     redirect_to root_path
   end
+  
 end
