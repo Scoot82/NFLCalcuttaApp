@@ -20,7 +20,7 @@
   	<tbody>
 			<% @syndicate.teams.order("price DESC").each do |f| %>	
 			<tr>
-				<td><%= image_tag f.image_url(:thumb).to_s %> |
+				<td><%= image_tag f.image_url(:thumb).to_s %>
 					 	<% if @current_user %>
 							<%= link_to f.name, team_path(f) %>
 						<% else %>
@@ -30,7 +30,7 @@
 				<td><%= number_to_currency(f.price.to_i, precision: 0) %></td>
 				<td><%= f.wins %></td>
 				<td><%= number_to_currency(f.wins.to_i * @win_value - f.price, precision: 2, negative_format: "(%u%n)") %></td>
-				<td><%= number_to_percentage(((f.wins.to_f * @win_value) / f.price) * 100, precision: 2) %></td>
+				<td><%= number_to_percentage((((f.wins.to_f * @win_value) / f.price) * 100) - 100, precision: 2) %></td>
 				<% if @current_user %>
 				<td><%= link_to "Edit", edit_team_path(f) %></td>
 				<% end %>
