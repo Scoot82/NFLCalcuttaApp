@@ -8,11 +8,7 @@ class SyndicatesController < ApplicationController
     @syndicate = Syndicate.find(params[:id])
     @total_spend = @syndicate.teams.sum('price')
     @dollar_return = -@total_spend + @syndicate.teams.sum('wins') * @win_value.to_f
-    if @dollar_return > 0
-      @percent_return = @dollar_return.to_f / @total_spend.to_f * 100
-    else
-      @percent_return = "N/A"
-    end  
+    @percent_return = @dollar_return.to_f / @total_spend.to_f * 100 
   end
   
 end

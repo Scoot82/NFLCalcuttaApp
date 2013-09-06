@@ -30,7 +30,7 @@
 				<td><%= number_to_currency(f.price.to_i, precision: 0) %></td>
 				<td><%= f.wins %></td>
 				<td><%= number_to_currency(f.wins.to_i * @win_value - f.price, precision: 2, negative_format: "(%u%n)") %></td>
-				<td><%= number_to_percentage((f.wins.to_f * @win_value - f.price) / f.price * @win_value, precision: 0) %></td>
+				<td><%= number_to_percentage(((f.wins.to_f * @win_value) / f.price) * 100, precision: 2) %></td>
 				<% if @current_user %>
 				<td><%= link_to "Edit", edit_team_path(f) %></td>
 				<% end %>
