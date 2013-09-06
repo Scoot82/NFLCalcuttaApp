@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_win_value
   
   def set_win_value
-    @win_value = 100
+    @win_value = 86.75
   end  
   
   def find_user
