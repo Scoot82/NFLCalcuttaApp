@@ -4,8 +4,8 @@
       <%= link_to "2013 nfl calcutta", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Draft Results",   		root_path %></li> <!-- during draft, call 'Draft Board' -->
 					<li><%= link_to "Performance Tracker",   		syndicates_path %></li> <!-- draft: title 'Syndicates' -->
+					<li><%= link_to "Draft Results",   		teams_path %></li> <!-- during draft, call 'Draft Board' -->
 					<% if @current_user %>
 						<li><%= link_to "My Account",   user_path(@current_user.id) %></li>
 						<li><%= link_to "Create User",    new_user_path %></li>

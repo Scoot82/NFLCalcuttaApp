@@ -1,34 +1,7 @@
 <div class='container'>
 	
-	<h1>Win Value:</h1>
-	<div class="row">
-		<div class="span12">
-			<table class="table table-striped table-bordered table-condensed">
-				<thead>
-			    <tr>
-			      <th>Regular Season</th>
-						<th>Make Playoffs</th>
-						<th>Wild Card / Bye</th>
-						<th>Divisional</th>
-						<th>Conference</th>
-						<th>Super Bowl Shuffle</th>
-					</tr>
-				 </thead>
-				 <tbody>	
-						<tr>
-							<td><%= number_to_currency(@total_pot * 0.0025) %> </td>
-							<td><%= number_to_currency(@total_pot * 0.0075) %> </td>
-							<td><%= number_to_currency(@total_pot * 0.01) %> </td>
-							<td><%= number_to_currency(@total_pot * 0.0175) %> </td>
-							<td><%= number_to_currency(@total_pot * 0.0325) %> </td>
-							<td><%= number_to_currency(@total_pot * 0.055) %> </td>
-						</tr>
-				</tbody>
-			</table>	
-		</div>
-	</div>
-	
 	<h1>Syndicate Performance:</h1>
+	<div class= 'pull-left'> Updated Weekly</div>
 	<div class="row">
 		<div class="span12">
 			<table class="table table-striped table-bordered table-condensed">
@@ -57,5 +30,62 @@
 			</table>	
 		</div>
 	</div>
+	
+	<h1>Win Value:</h1>
+	<div class="row">
+		<div class="span12">
+			<table class="table table-striped table-bordered table-condensed">
+				<thead>
+			    <tr>
+			      <th>Regular Season</th>
+						<th>Make Playoffs</th>
+						<th>Wild Card / Bye</th>
+						<th>Divisional</th>
+						<th>Conference</th>
+						<th>Super Bowl Shuffle</th>
+					</tr>
+				 </thead>
+				 <tbody>	
+						<tr>
+							<td><%= number_to_currency(@total_pot * 0.0025) %> </td>
+							<td><%= number_to_currency(@total_pot * 0.0075) %> </td>
+							<td><%= number_to_currency(@total_pot * 0.01) %> </td>
+							<td><%= number_to_currency(@total_pot * 0.0175) %> </td>
+							<td><%= number_to_currency(@total_pot * 0.0325) %> </td>
+							<td><%= number_to_currency(@total_pot * 0.055) %> </td>
+						</tr>
+				</tbody>
+			</table>	
+		</div>
+	</div>
+</div>
+
+<h1>Cumulative:</h1>
+<div class="row">
+	<div class="span12">
+		<table class="table table-striped table-bordered table-condensed">
+			<thead>
+		    <tr>
+		      <th>10-Win Regular Season</th>
+					<th>Make Playoffs</th>
+					<th>Wild Card / Bye</th>
+					<th>Divisional</th>
+					<th>Conference</th>
+					<th>Super Bowl Shuffle</th>
+				</tr>
+			 </thead>
+			 <tbody>	
+					<tr>
+						<td><%= number_to_currency(@total_pot * 0.0025 * 10) %> </td>
+						<td><%= number_to_currency(@total_pot * 0.0075 + @total_pot * 0.0025 * 10) %> </td>
+						<td><%= number_to_currency(@total_pot * 0.01 + @total_pot * 0.0075 + @total_pot * 0.0025 * 10)  %> </td>
+						<td><%= number_to_currency(@total_pot * 0.0175 + @total_pot * 0.01 + @total_pot * 0.0075 + @total_pot * 0.0025 * 10) %> </td>
+						<td><%= number_to_currency(@total_pot * 0.0325 + @total_pot * 0.0175 + @total_pot * 0.01 + @total_pot * 0.0075 + @total_pot * 0.0025 * 10) %> </td>
+						<td><%= number_to_currency(@total_pot * 0.055 + @total_pot * 0.0325 + @total_pot * 0.0175 + @total_pot * 0.01 + @total_pot * 0.0075 + @total_pot * 0.0025 * 10) %> </td>
+					</tr>
+			</tbody>
+		</table>	
+	</div>
+</div>
 </div>
 

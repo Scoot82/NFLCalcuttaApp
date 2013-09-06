@@ -12,6 +12,8 @@
 			<th>Wins</th>
 			<th>Net Return ($)</th>
 			<th>Net Return (%)</th>
+			<th>Reg. Wins Est.</th>
+			<th>To Break-Even</th>
 			<% if @current_user %>
 			<th>Edit</th>
 			<% end %>
@@ -31,14 +33,39 @@
 				<td><%= f.wins %></td>
 				<td><%= number_to_currency(f.wins.to_i * @win_value - f.price, precision: 2, negative_format: "(%u%n)") %></td>
 				<td><%= number_to_percentage((((f.wins.to_f * @win_value) / f.price) * 100) - 100, precision: 2) %></td>
+				<td> <%= @wins_selector %> </td>
+				<td>
+					<% balance = @win_value * @wins_selector.to_f - f.price %>
+					<% if balance > 0 %>
+						Regular Season Wins
+					<% elsif balance < 0 && balance > -257.25  %>	
+						Reach Playoffs
+					<% elsif balance < -257.25 && balance > -600.25  %>
+						Win Wild Card Round / Bye
+					<% elsif balance < -600.25 && balance > -943.25  %>
+						Win Divisional Round
+					<% elsif balance < -943.25 && balance > -1543.5  %>
+						Win Conference Round
+					<% elsif balance < -1543.5 && balance > -2658.25  %>
+						Win The Superbowl
+					<% end %>	
+				</td>	
 				<% if @current_user %>
 				<td><%= link_to "Edit", edit_team_path(f) %></td>
 				<% end %>
 			<% end %>
 			</tr>
 		</tbody>	
-	</thead>	
+	</thead>
 </table>
+
+<div class='center'>
+	Change 'Season Wins Prediction'
+	<%= form_tag do %>
+		<p><%= number_field_tag "wins" %></p>
+		<%= submit_tag "Update", class:"btn btn-primary btn-small"%>
+		<% end %>
+</div>
 
 <h3>Net Investment: <%= number_to_currency(@dollar_return, precision: 0) %> | <%= number_to_percentage(@percent_return, precision: 1) %></h3>	
 
