@@ -4,5 +4,6 @@ NFLCalcuttaApp::Application.routes.draw do
   resources :syndicates
   resources :users
   resources :sessions
+  resources :members
   post '/syndicates/:id', controller: 'syndicates', action: 'show'
 end

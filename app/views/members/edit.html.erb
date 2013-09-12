@@ -1,0 +1,16 @@
+<h1>Editing <%= @member.name %></h1>
+
+<%= form_for @member do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	
+	<%= f.label :syndicate_id %>
+	<%= f.select :syndicate_id, [['None', nil ], ['Scott', 1 ], ['Larry', 2], ['Master', 3], ['Gnade', 4], ['Nitin', 5], ['Veltman', 6]] %>
+	
+	<%= f.label :ownership_percent, "% Owned" %>
+	<%= f.text_field :ownership_percent %>
+	
+	<p><%= f.submit %></p>
+
+<% end %>

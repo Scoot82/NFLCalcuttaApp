@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  syndicate_id: 1
+  ownership_percent: 1
+
+two:
+  syndicate_id: 1
+  ownership_percent: 1
